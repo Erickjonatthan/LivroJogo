@@ -82,7 +82,7 @@ public class App {
         System.out.println("\n---------CAPITULO 1.2--------\n");
         System.out.println(
                 "Você tenta resolver o enigma e descobre que ele aponta para um suspeito inesperado." +
-                        "\nÉ John, o mordomo de Elizabeth.");
+                        "\nÉ João, o mordomo de Elizabeth.");
         pergunta();
         System.out.println("-Confrontar o suspeito diretamente (tentar fazê-lo confessar)");
         System.out.println("-Investigar mais para reunir provas\n");
