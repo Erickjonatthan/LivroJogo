@@ -7,8 +7,12 @@ public class Personagem {
         this.energia = energia;
     }
     
-    void subtrairEnergia(int valor) {
+    int subtrairEnergia(int valor) {
         this.energia -= valor;
+        if(energia==0){
+            System.out.println("Opa! Acabou sua energia! ");
+        }
+        return valor;
     }
     
 }
