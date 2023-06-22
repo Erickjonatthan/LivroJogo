@@ -14,5 +14,14 @@ public class Personagem {
         }
         return valor;
     }
+    void exibirEnergia(boolean fim){
+        if(fim){    
+        System.out.println("Sua energia final é de: "+this.energia);
+        }
+        else{
+            System.out.println("Sua energia é de: "+this.energia);
+        }
+            
+    }
     
 }
