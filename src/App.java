@@ -7,8 +7,8 @@ public class App {
         
         Scanner scan = new Scanner(System.in, "UTF-8");
         boolean continua = true;
-        Personagem Joao = new Personagem("João", 0);
-        Personagem Edward = new Personagem("Edward", 0);
+        Personagem Joao = new Personagem("João", 100);
+        Personagem Edward = new Personagem("Edward", 100);
         boolean verifica = false;
         String decisao;
         int capitulo;
@@ -18,8 +18,8 @@ public class App {
             //toda vez que voltar para o inicio do while as variaveis recebem o valor inicial
             decisao = "";
             capitulo = 1;
-            Edward.energia = 100;
-            // Joao.energia = 110;
+            Edward.energia=100;
+            
             if (decisao == "" && capitulo == 1 && verifica == false )  {
                 cap01(Edward);
                 decisao = resposta(scan);
