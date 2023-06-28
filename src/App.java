@@ -119,7 +119,7 @@ public class App {
             }
             if (numEscolha == 1 || verifica == true ) {
                 verifica = true;
-                capitulo0102.mostrar();;
+                capitulo0102.mostrar();
                 numEscolha = capitulo0102.escolher(scan);
               
                 //inverti a ordem para não ficar padrão
