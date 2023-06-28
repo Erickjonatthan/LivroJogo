@@ -9,8 +9,6 @@ public class App {
         boolean continua = true;
         Personagem Edward = new Personagem("Edward", 100);
         boolean verifica = false;
-        String decisao;
-        int capitulo;
 
         Capitulo capitulo1 = new Capitulo();
         capitulo1.personagem = Edward;
@@ -70,7 +68,7 @@ public class App {
         capitulo010202.alteracaoEnergia = 50;
         capitulo010202.nome = "\n---------CAPITULO 1.2.2--------\n";
         capitulo010202.texto = 
-        "Você gastou" + capitulo010202.alteracaoEnergia+" de energia para investigar mais e reunir provas contra João..." +
+        "Você gastou " + capitulo010202.alteracaoEnergia+" de energia para investigar mais e reunir provas contra João..." +
         "\nÉ um trabalho difícil, mas no final você consegue reunir evidências suficientes para prendê-lo."+
         "\nDescobrindo que ele estava apaixonado por Elizabeth, mas ela não correspondia aos seus sentimentos."+
         "\nAlém disso, Elizabeth estava planejando demiti-lo e ele ficou com raiva."+
@@ -109,13 +107,11 @@ public class App {
         //começo da história
         while (continua) {
             //toda vez que voltar para o inicio do while as variaveis recebem o valor inicial
-            decisao = "";
-            capitulo = 1;
             Edward.energia=100;
             int numEscolha = 0;
 
 
-            if (decisao == "" && capitulo == 1 && verifica == false )  {
+            if (verifica == false )  {
 
                 capitulo1.mostrar();
                 numEscolha = capitulo1.escolher(scan);
@@ -135,7 +131,6 @@ public class App {
                     verifica=false;
                     continua = perguntaContinua(scan, continua);
 
-                  
                    
                 } else if (numEscolha == 1) {
                     capitulo010201.mostrar();
@@ -172,13 +167,6 @@ public class App {
         
     private static void msgErro() {
         System.out.println("\nNão entendi... Tente novamente:\n");
-    }
-    private static void pergunta() {
-        System.out.println("O que você faz?");
-    }
-    
-    private static void msgFim() {
-        System.out.println("\n----------FINAL---------\n");
     }
  
     private static boolean perguntaContinua(Scanner scan, boolean continua) {
