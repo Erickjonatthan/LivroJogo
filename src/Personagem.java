@@ -9,21 +9,12 @@ public class Personagem {
         this.energia = energia;
     }
 
-    int subtrairEnergia(int valor) {
+    void subtrairEnergia(int valor) {
         this.energia -= valor;
-        if (energia == 0) {
-            System.out.println("Opa! Acabou sua energia! ");
-        }
-        return valor;
     }
 
-    void exibirEnergia(boolean fim) {
-        if (fim) {
-            System.out.println("Sua energia final é de: " + this.energia);
-        } else {
-            System.out.println("Sua energia é de: " + this.energia);
-        }
-
+    void exibirEnergia() {    
+    System.out.println("Sua energia atual é de: " + this.energia);
     }
 
 }
