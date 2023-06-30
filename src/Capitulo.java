@@ -5,9 +5,9 @@ public class Capitulo {
     private String nome, texto, escolha1, escolha2;
     private Personagem personagem;
     private int alteracaoEnergia;
-
+    
    
-    public Capitulo(Personagem personagem, int alteracaoEnergia, String nome ,String texto,String escolha1,String escolha2){
+    public Capitulo(Personagem personagem, int alteracaoEnergia, String nome, String texto,String escolha1,String escolha2){
         this.personagem = personagem;
         this.alteracaoEnergia = alteracaoEnergia;
         this.nome = nome;
@@ -29,11 +29,11 @@ public class Capitulo {
         System.out.println(this.texto);
 
         if(alteracaoEnergia != 0 && escolha1 != null){
-        personagem.exibirEnergia();
+        System.out.println("Sua energia é de: " +personagem.getEnergia());
         }
         
         else if(alteracaoEnergia == 0){
-        personagem.exibirEnergia();
+        System.out.println("Sua energia é de: " + personagem.getEnergia());
             
         }
   

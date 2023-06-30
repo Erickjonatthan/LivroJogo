@@ -7,12 +7,12 @@ public class App {
         
         Scanner scan = new Scanner(System.in, "UTF-8");
         boolean continua = true;
-        Personagem Personagem1 = new Personagem("Edward", 100);
+        Personagem Edward = new Personagem("Edward", 100);
         boolean verifica = false;
 
 
         Capitulo capitulo1 = new Capitulo(
-        Personagem1,
+        Edward,
         0,
         "\n---------CAPITULO 1--------\n",
         "Você é um investigador famoso por resolver casos difíceis." +
@@ -31,7 +31,7 @@ public class App {
         
 
         Capitulo capitulo0101 = new Capitulo(
-        Personagem1,
+        Edward,
         100,
         "\n---------CAPITULO 1.1--------\n",
         "Você decide que é muito difícil resolver o enigma e vai embora." +
@@ -42,7 +42,7 @@ public class App {
 
 
         Capitulo capitulo0102 = new Capitulo(
-        Personagem1,
+        Edward,
                 10,
                 "\n---------CAPITULO 1.2--------\n",
          "Você descobre que o enigma aponta para um suspeito inesperado. É João, o mordomo de Elizabeth.\n" +
@@ -52,7 +52,7 @@ public class App {
                 "Investigar mais para reunir provas");
 
         Capitulo capitulo010201 = new Capitulo(
-        Personagem1,
+        Edward,
                 90,
                 "\n---------CAPITULO 1.2.1--------\n",
          "Você confronta o suspeito diretamente e tenta fazê-lo confessar." +
@@ -63,7 +63,7 @@ public class App {
                 null);
 
         Capitulo capitulo010202 = new Capitulo(
-        Personagem1,
+        Edward,
                 50,
                 "\n---------CAPITULO 1.2.2--------\n",
         "Você investiga mais e reune provas contra João..." +
@@ -75,7 +75,7 @@ public class App {
                 null);
 
         Capitulo capituloFinal1 = new Capitulo(
-         Personagem1,
+         Edward,
           0,
      "\n---------FINAL 1--------\n",
           "Você não resolveu o caso do assassinato de Elizabeth e volta para sua vida normal." +
@@ -85,7 +85,7 @@ public class App {
           );
 
         Capitulo capituloFinal2 = new Capitulo(
-          Personagem1,
+          Edward,
           0,
           "\n---------FINAL 2--------\n",
           "Você não conseguiu resolver o caso do assassinato de Elizabeth e João sai impune." +
@@ -93,9 +93,9 @@ public class App {
           null,
           null
           );
-
+    
         Capitulo capituloFinal3 = new Capitulo(
-            Personagem1,
+            Edward,
           0,
      "\n---------FINAL 3--------\n",
           "Você resolveu o caso do assassinato de Elizabeth e prendeu João, o culpado." +
@@ -108,12 +108,12 @@ public class App {
         //começo da história
         while (continua) {
             //toda vez que voltar para o inicio do while as variaveis recebem o valor inicial
-            Personagem1.modificaEnergia(100);
+            Edward.setEnergia(100);
             int numEscolha = 0;
 
 
             if (verifica == false )  {
-                
+                System.out.println("Nome do Personagem: "+ Edward.getNome()); 
                 capitulo1.mostrar();
                 
                 numEscolha = capitulo1.escolher(scan);
