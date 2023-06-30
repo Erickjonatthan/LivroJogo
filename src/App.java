@@ -7,7 +7,7 @@ public class App {
         
         Scanner scan = new Scanner(System.in, "UTF-8");
         boolean continua = true;
-        Personagem Edward = new Personagem("Edward", 100);
+        Personagem Edward = new Personagem("Edward");
         boolean verifica = false;
 
 
