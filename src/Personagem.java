@@ -1,7 +1,7 @@
 public class Personagem {
 
-    String nome;
-    int energia;
+    private String nome;
+    private int energia;
 
     public Personagem(String nome,
             int energia) {
@@ -9,12 +9,18 @@ public class Personagem {
         this.energia = energia;
     }
 
-    void subtrairEnergia(int valor) {
+    public void subtrairEnergia(int valor) {
+        
         this.energia -= valor;
     }
-
-    void exibirEnergia() {    
-    System.out.println("Sua energia atual é de: " + this.energia);
+    public void modificaEnergia(int valor){
+        this.energia = valor;
+    }
+    public String returnNome(){
+        return this.nome;
+    }
+    public void exibirEnergia() {  
+    System.out.println("Sua energia é de: " + this.energia);
     }
 
 }
