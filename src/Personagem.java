@@ -18,7 +18,7 @@ public class Personagem {
     }
     
     public String getNome() {
-        return nome;
+        return this.nome;
     }
     public int getEnergia() {  
     return this.energia;
