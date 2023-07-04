@@ -6,10 +6,8 @@ public class App {
     public static void main(String[] args) {
         
         Scanner scan = new Scanner(System.in, "UTF-8");
-        boolean continua = true;
+        
         Personagem Edward = new Personagem("Edward");
-        boolean verifica = false;
-
 
         Capitulo capitulo1 = new Capitulo(
         Edward,
@@ -24,9 +22,8 @@ public class App {
         "\n-Tentar decifrar o enigma\n" +
         "-Ir embora\n",
         "Tentar decifrar o enigma",
-        "Ir embora"
-       
-        
+        "Ir embora",
+        scan 
         );
         
 
@@ -38,7 +35,8 @@ public class App {
         "\nA polícia fica desapontada, mas entende sua decisão." +
         "\nVocê não descobriu a verdade sobre o assassinato de Elizabeth.\n",
         null,
-        null);
+        null,
+        scan);
 
 
         Capitulo capitulo0102 = new Capitulo(
@@ -49,7 +47,8 @@ public class App {
          "\n-Confrontar o suspeito diretamente\n" +
          "-Investigar mais para reunir provas\n",
                 "Confrontar o suspeito diretamente",
-                "Investigar mais para reunir provas");
+                "Investigar mais para reunir provas",
+                scan);
 
         Capitulo capitulo010201 = new Capitulo(
         Edward,
@@ -60,7 +59,8 @@ public class App {
          "\nEle nega tudo e se recusa a cooperar." +
          "\nVocê não tem provas suficientes para prendê-lo e ele sai impune.\n",
                 null,
-                null);
+                null,
+                scan);
 
         Capitulo capitulo010202 = new Capitulo(
         Edward,
@@ -72,7 +72,8 @@ public class App {
         "\nAlém disso, Elizabeth estava planejando demiti-lo e ele ficou com raiva." +
         "\nJoão é levado a julgamento e condenado pelo assassinato de Elizabeth.\n",
                 null,
-                null);
+                null,
+                scan);
 
         Capitulo capituloFinal1 = new Capitulo(
          Edward,
@@ -81,7 +82,8 @@ public class App {
           "Você não resolveu o caso do assassinato de Elizabeth e volta para sua vida normal." +
           "\nHá outros casos para resolver e outras aventuras para viver.\n",
            null,
-          null
+          null,
+          scan
           );
 
         Capitulo capituloFinal2 = new Capitulo(
@@ -91,7 +93,8 @@ public class App {
           "Você não conseguiu resolver o caso do assassinato de Elizabeth e João sai impune." +
           "\nVoltando para sua vida normal, mas fica com a sensação de que a justiça não foi feita.\n",
           null,
-          null
+          null,
+          scan
           );
     
         Capitulo capituloFinal3 = new Capitulo(
@@ -101,79 +104,47 @@ public class App {
           "Você resolveu o caso do assassinato de Elizabeth e prendeu João, o culpado." +
           "\nA justiça foi feita e você é aclamado como um herói por todos.\n",
           null,
-          null
-          
+          null,
+          scan 
           );
         
-        //começo da história
-        while (continua) {
-            //toda vez que voltar para o inicio do while as variaveis recebem o valor inicial
-            Edward.setEnergia(100);
-            int numEscolha = 0;
+        Edward.setEnergia(100);
+        
+        capitulo1.mostrar();
+        
+        Boolean continua = true;
 
+        int numEscolha = capitulo1.escolher();
 
-            if (verifica == false )  {
-                System.out.println("Nome do Personagem: "+ Edward.getNome()); 
-                capitulo1.mostrar();
-                
-                numEscolha = capitulo1.escolher(scan);
+        if (numEscolha == 1 && continua==true) {
 
-            }
-            if (numEscolha == 1 || verifica == true ) {
-                verifica = true;
-                
-                capitulo0102.mostrar();
-                numEscolha = capitulo0102.escolher(scan);
-              
-                //inverti a ordem para não ficar padrão
-                if (numEscolha == 2) {
+            capitulo0102.mostrar();
+            numEscolha = capitulo0102.escolher();
+            //inverti a ordem para não ficar padrão
+
+            if (numEscolha == 2) {       
+                capitulo010202.mostrar();
+                capituloFinal3.mostrar();                    
+                continua = perguntaContinua(scan, continua);
                     
-                    capitulo010202.mostrar();
-                    capituloFinal3.mostrar();
-                    
-                    
-                    verifica=false;
-                    continua = perguntaContinua(scan, continua);
-
-                   
                 } else if (numEscolha == 1) {
 
-                    capitulo010201.mostrar();
-                    capituloFinal2.mostrar();
-                    
-                    verifica=false;
-                    continua = perguntaContinua(scan, continua);
+                capitulo010201.mostrar();
+                capituloFinal2.mostrar(); 
+                continua = perguntaContinua(scan, continua);
                    
-                } else {
-                    msgErro();
                 }
                 
-            } else if (numEscolha == 2) {
+            } 
+        else if (numEscolha == 2) {
 
-                capitulo0101.mostrar();
-                capituloFinal1.mostrar();
-
-                continua = perguntaContinua(scan, continua);
-            } else {
-                msgErro();
-                
-                
+            capitulo0101.mostrar();
+            capituloFinal1.mostrar();
+            continua = perguntaContinua(scan, continua);
             }
         }
-        scan.close();
-    }
-    
-    private static String resposta(Scanner scan) {
-        String decisao;
-        System.out.print("- ");
-        decisao = scan.nextLine();
-        return decisao;
-    }
-        
-    private static void msgErro() {
-        System.out.println("\nNão entendi... Tente novamente:\n");
-    }
- 
+
+    //ainda não sei onde colocar essa funcão  -todo final recebe eLa
     private static boolean perguntaContinua(Scanner scan, boolean continua) {
 
         boolean naoEntendeu = true;
@@ -181,7 +152,7 @@ public class App {
         while (naoEntendeu) {
 
             System.out.println("\nTentar novamente ou sair?");
-            String respostaContinua = resposta(scan);
+            String respostaContinua = scan.nextLine();
             if (respostaContinua.equalsIgnoreCase("sair")) {
 
                 continua = false;
@@ -193,7 +164,7 @@ public class App {
                 naoEntendeu = false;
 
             } else {
-                msgErro();
+                System.out.println("\nNão entendi... Tente novamente:");
             }
         }
         return continua;
