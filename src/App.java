@@ -21,8 +21,8 @@ public class App {
         "\nO enigma diz: - O assassino está mais perto do que você imagina!\n" +
         "\n-Tentar decifrar o enigma\n" +
         "-Ir embora\n",
-        "Tentar decifrar o enigma",
-        "Ir embora",
+        new String[]{"Tentar decifrar o enigma",
+        "Ir embora"},
         scan 
         );
         
@@ -34,8 +34,7 @@ public class App {
         "Você decide que é muito difícil resolver o enigma e vai embora." +
         "\nA polícia fica desapontada, mas entende sua decisão." +
         "\nVocê não descobriu a verdade sobre o assassinato de Elizabeth.\n",
-        null,
-        null,
+        new String[0],
         scan);
 
 
@@ -46,8 +45,8 @@ public class App {
          "Você descobre que o enigma aponta para um suspeito inesperado. É João, o mordomo de Elizabeth.\n" +
          "\n-Confrontar o suspeito diretamente\n" +
          "-Investigar mais para reunir provas\n",
-                "Confrontar o suspeito diretamente",
-                "Investigar mais para reunir provas",
+                new String[]{"Confrontar o suspeito diretamente",
+                "Investigar mais para reunir provas"},
                 scan);
 
         Capitulo capitulo010201 = new Capitulo(
@@ -58,8 +57,7 @@ public class App {
          "\nEle se chama João e é o mordomo de Elizabeth." +
          "\nEle nega tudo e se recusa a cooperar." +
          "\nVocê não tem provas suficientes para prendê-lo e ele sai impune.\n",
-                null,
-                null,
+                new String[0],
                 scan);
 
         Capitulo capitulo010202 = new Capitulo(
@@ -71,8 +69,7 @@ public class App {
         "\nDescobrindo que ele estava apaixonado por Elizabeth, mas ela não correspondia aos seus sentimentos."+
         "\nAlém disso, Elizabeth estava planejando demiti-lo e ele ficou com raiva." +
         "\nJoão é levado a julgamento e condenado pelo assassinato de Elizabeth.\n",
-                null,
-                null,
+                new String[0],
                 scan);
 
         Capitulo capituloFinal1 = new Capitulo(
@@ -81,8 +78,7 @@ public class App {
      "\n---------FINAL 1--------\n",
           "Você não resolveu o caso do assassinato de Elizabeth e volta para sua vida normal." +
           "\nHá outros casos para resolver e outras aventuras para viver.\n",
-           null,
-          null,
+           new String[0],
           scan
           );
 
@@ -92,8 +88,7 @@ public class App {
           "\n---------FINAL 2--------\n",
           "Você não conseguiu resolver o caso do assassinato de Elizabeth e João sai impune." +
           "\nVoltando para sua vida normal, mas fica com a sensação de que a justiça não foi feita.\n",
-          null,
-          null,
+          new String[0],
           scan
           );
     
@@ -103,50 +98,42 @@ public class App {
      "\n---------FINAL 3--------\n",
           "Você resolveu o caso do assassinato de Elizabeth e prendeu João, o culpado." +
           "\nA justiça foi feita e você é aclamado como um herói por todos.\n",
-          null,
-          null,
+          new String[0],
           scan 
           );
-        
-        Edward.setEnergia(100);
-        
-        capitulo1.mostrar();
-        
+          
         Boolean continua = true;
+        //começa aqui  
+        while (continua) { 
+            Edward.setEnergia(100);      
+            capitulo1.mostrar();
+            int numEscolha = capitulo1.escolher();
 
-        int numEscolha = capitulo1.escolher();
+            if (numEscolha == 0) {
+                capitulo0102.mostrar();
+                numEscolha = capitulo0102.escolher();
 
-        if (numEscolha == 1 && continua==true) {
-
-            capitulo0102.mostrar();
-            numEscolha = capitulo0102.escolher();
-            //inverti a ordem para não ficar padrão
-
-            if (numEscolha == 2) {       
+                if (numEscolha == 1) {       
                 capitulo010202.mostrar();
                 capituloFinal3.mostrar();                    
                 continua = perguntaContinua(scan, continua);
-                    
-                } else if (numEscolha == 1) {
-
+                } 
+                else if (numEscolha == 0) {
                 capitulo010201.mostrar();
                 capituloFinal2.mostrar(); 
                 continua = perguntaContinua(scan, continua);
-                   
                 }
-                
             } 
-        else if (numEscolha == 2) {
-
-            capitulo0101.mostrar();
-            capituloFinal1.mostrar();
-            continua = perguntaContinua(scan, continua);
+            else if (numEscolha == 1) {
+                capitulo0101.mostrar();
+                capituloFinal1.mostrar();
+                continua = perguntaContinua(scan, continua);    
             }
         }
+    }
 
-    //ainda não sei onde colocar essa funcão  -todo final recebe eLa
     private static boolean perguntaContinua(Scanner scan, boolean continua) {
-
+        
         boolean naoEntendeu = true;
 
         while (naoEntendeu) {

@@ -20,8 +20,8 @@ public class Personagem {
     public String getNome() {
         return this.nome;
     }
-    public int getEnergia() {  
-    return this.energia;
+    public int getEnergia() {
+        return this.energia;
     }
 
 }
