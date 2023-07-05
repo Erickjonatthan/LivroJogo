@@ -58,16 +58,13 @@ public class Capitulo {
         String textoDigitado = this.scan.nextLine();
 
         int numEscolha = -1;
-        int index = 0;
-
         while (continua) {
-            for (String escolha : this.escolhas) {
-                if (textoDigitado.equalsIgnoreCase(escolha)) {
-                    numEscolha = index;
+            for (int i = 0; i < this.escolhas.length; i++) {
+                if (textoDigitado.equalsIgnoreCase(this.escolhas[i])) {
+                    numEscolha = i;
                     continua = false;
                     break;
                 }
-                index++;
             }
             if (continua) {
                 System.out.println("\nNão entendi... Tente novamente:");
@@ -75,6 +72,7 @@ public class Capitulo {
             }
         }
         return numEscolha;
+
 }
 }
 

@@ -103,6 +103,7 @@ public class App {
           );
           
         Boolean continua = true;
+
         //começa aqui  
         while (continua) { 
             Edward.setEnergia(100);      
