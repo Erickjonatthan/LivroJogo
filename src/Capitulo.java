@@ -1,78 +1,88 @@
+import java.util.ArrayList;
 import java.util.Scanner;
-
 public class Capitulo {
 
     private String nome, texto;
-    private String[] escolhas;
+    private ArrayList<Escolha> escolhas;
     private Personagem personagem;
     private int alteracaoEnergia;
     private Scanner scan;    
-   
-    public Capitulo(Personagem personagem, int alteracaoEnergia, String nome, String texto, String[] escolhas, Scanner scan){
+    
+    public Capitulo(Personagem personagem, int alteracaoEnergia, String nome, String texto, Scanner scan){
         this.personagem = personagem;
         this.alteracaoEnergia = alteracaoEnergia;
         this.nome = nome;
         this.texto = texto;
-        this.escolhas= escolhas;
         this.scan = scan;
+        this.escolhas = new ArrayList<Escolha>();
     }
- 
-   
-    public void mostrar(){
-
-
-        personagem.subtrairEnergia(alteracaoEnergia);
-
-        if(alteracaoEnergia != 0){
- 
-            System.out.println("\n-ATENÇÃO: "+personagem.getNome()+" gastou "+alteracaoEnergia+" pontos de energia ao escolher essa opção!");
+    private int escolher(){
     
-        }
-        
-        
-        
-        System.out.println(this.nome);
-        System.out.println(this.texto);
-
-        if(alteracaoEnergia != 0 && escolhas.length != 0){
-
-            System.out.println("Sua energia é de: " +personagem.getEnergia());
-
-        }
-
-       
-        else if(alteracaoEnergia == 0){
-
-            System.out.println("Sua energia é de: " +personagem.getEnergia());
-            
-        }
-  
-       
-    }
-   
-    public int escolher(){
-
         boolean continua = true;
-
-        System.out.print("-Qual sua escolha? ");
-        String textoDigitado = this.scan.nextLine();
-
-        int numEscolha = -1;
-        while (continua) {
-            for (int i = 0; i < this.escolhas.length; i++) {
-                if (textoDigitado.equalsIgnoreCase(this.escolhas[i])) {
-                    numEscolha = i;
-                    continua = false;
-                    break;
+        if (this.escolhas.size() > 0) {
+            
+            System.out.print("-Qual sua escolha? ");
+            String textoDigitado = this.scan.nextLine();
+        
+    
+            while (continua) {
+                for (int i = 0; i < this.escolhas.size(); i++) {
+                    if (textoDigitado.equalsIgnoreCase(this.escolhas.get(i).getTexto())) {
+                        continua = false;
+                        return i;
+                    }
+                }
+                if (continua) {
+                    System.out.println("\nNão entendi... Tente novamente:");
+                    textoDigitado = this.scan.nextLine();
                 }
             }
-            if (continua) {
-                System.out.println("\nNão entendi... Tente novamente:");
-                textoDigitado = this.scan.nextLine();
-            }
         }
-        return numEscolha;
+        return -1;
+    }
 
-}
+    private void mostrar(){
+    
+         personagem.subtrairEnergia(alteracaoEnergia);
+
+         if(alteracaoEnergia != 0){
+             System.out.println("\n-ATENÇÃO: "+personagem.getNome()+" gastou "+alteracaoEnergia+" pontos de energia ao escolher essa opção!");
+         }
+         
+         System.out.println(this.nome);
+         System.out.println(this.texto);
+    
+         for (Escolha escolha : escolhas) {
+             System.out.println("- "+ escolha.getTexto());
+         }
+    
+    
+         if(alteracaoEnergia != 0 && escolhas.size() != 0){
+             System.out.println("Sua energia é de: " +personagem.getEnergia());    
+         }
+
+         if(alteracaoEnergia == 0){    
+             System.out.println("Sua energia é de: " +personagem.getEnergia());
+         }
+        
+     }
+ 
+    public void setEscolha(String texto, Capitulo capitulo){
+
+        this.escolhas.add(new Escolha(texto, capitulo));
+
+    }
+   
+    public void executar(){
+
+            mostrar();
+            int id = escolher();
+            if(id >= 0 ){
+                
+                this.escolhas.get(id).getProximo().executar();
+            }
+
+    }
+
 }
 

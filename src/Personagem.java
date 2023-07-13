@@ -11,6 +11,9 @@ public class Personagem {
     public void subtrairEnergia(int valor) {
         
         this.energia -= valor;
+        if (this.energia < 0) {
+            this.energia = 0;
+        }
 
     }
     public void setEnergia(int valor){
