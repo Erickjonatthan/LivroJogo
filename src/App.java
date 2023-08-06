@@ -96,7 +96,11 @@ public class App {
           capitulo010201.setEscolha("Continuar", capituloFinal2);
           capitulo010202.setEscolha("Continuar", capituloFinal3);
 
-          Edward.setEnergia(100);
+          try {
+            Edward.setEnergia(100);
+          } catch (EnergiaNegativaException e) {
+            System.out.println(e.getMessage());
+          }
           
           capituloRaiz.executar();
 
