@@ -98,10 +98,11 @@ public class App {
 
           try {
             Edward.setEnergia(100);
-          } catch (EnergiaNegativaException e) {
+          } catch (EnergiaException e) {
             System.out.println(e.getMessage());
+            return;
           }
-          
+
           capituloRaiz.executar();
 
           System.out.println("Tentar novamente?");
