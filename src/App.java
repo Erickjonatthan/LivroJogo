@@ -96,13 +96,8 @@ public class App {
           capitulo010201.setEscolha("Continuar", capituloFinal2);
           capitulo010202.setEscolha("Continuar", capituloFinal3);
 
-          try {
-            Edward.setEnergia(100);
-          } catch (EnergiaException e) {
-            System.out.println(e.getMessage());
-            return;
-          }
-
+   
+          Edward.setEnergia(100);
           capituloRaiz.executar();
 
           System.out.println("Tentar novamente?");
