@@ -28,7 +28,7 @@ public class App {
 
                 if (partes.length == 2) {
                         String nomePersonagem = partes[0];
-                        float energiaPersonagem = Integer.parseInt(partes[1]);
+                        double energiaPersonagem = Integer.parseInt(partes[1]);
 
                         Personagem personagem = new Personagem(nomePersonagem);
                         personagem.setEnergia(energiaPersonagem);
