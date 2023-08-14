@@ -1,3 +1,6 @@
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class App {
@@ -7,13 +10,44 @@ public class App {
         
         Scanner scan = new Scanner(System.in, "UTF-8");
         
-        Personagem Edward = new Personagem("Edward");
+        File personagens = new File("src/personagens.txt");
+        Scanner scanPersonagens = null; 
+        try {
+                scanPersonagens = new Scanner(personagens, "UTF-8");
+        } catch (Exception e) {
+                System.out.println("Erro ao ler o arquivo personagens.txt");
+                e.printStackTrace();
+        }
+
+        Map<Integer, Personagem> personagensMap = new HashMap<>();
+        int idPersonagem = 1;
+
+        while (scanPersonagens.hasNextLine()) {
+                String linha = scanPersonagens.nextLine();
+                String[] partes = linha.split(",");
+
+                if (partes.length == 2) {
+                        String nomePersonagem = partes[0];
+                        float energiaPersonagem = Integer.parseInt(partes[1]);
+
+                        Personagem personagem = new Personagem(nomePersonagem);
+                        personagem.setEnergia(energiaPersonagem);
+
+                        personagensMap.put(idPersonagem, personagem);
+                        idPersonagem++;
+                }
+        }
+        scanPersonagens.close();        
+        
+        Personagem personagemPrincipal = personagensMap.get(1);
+
+
 
         Capitulo capituloRaiz = new Capitulo(
-        Edward,
+        personagemPrincipal,
         0,
         "\n---------CAPITULO 1--------\n",
-        "Você é um investigador famoso por resolver casos difíceis." +
+        personagemPrincipal.getNome()+" é um investigador famoso por resolver casos difíceis." +
         "\nUm dia, você é chamado para investigar o assassinato de uma mulher rica chamada Elizabeth." +
         "\nEla foi encontrada morta em sua mansão e a polícia não tem pistas sobre o assassino." +
         "\nVocê decide investigar o caso e vai até a mansão de Elizabeth." +
@@ -21,29 +55,28 @@ public class App {
         "\nO enigma diz: - O assassino está mais perto do que você imagina!\n",
         scan 
         );
-       
+        
         
 
         Capitulo capitulo0101 = new Capitulo(
-        Edward,
-        100,
+        personagemPrincipal,
+        personagemPrincipal.getEnergia(),// = energia do personagem
         "\n---------CAPITULO 1.1--------\n",
         "Você decide que é muito difícil resolver o enigma e vai embora." +
         "\nA polícia fica desapontada, mas entende sua decisão." +
         "\nVocê não descobriu a verdade sobre o assassinato de Elizabeth.\n",
         scan);
 
-
         Capitulo capitulo0102 = new Capitulo(
-        Edward,
-                10,
+        personagemPrincipal,
+        personagemPrincipal.getEnergia()*0.1, // 10% da energia do personagem
                 "\n---------CAPITULO 1.2--------\n",
          "Você descobre que o enigma aponta para um suspeito inesperado. É João, o mordomo de Elizabeth.\n",
                 scan);
 
         Capitulo capitulo010201 = new Capitulo(
-        Edward,
-                90,
+        personagemPrincipal,
+                personagemPrincipal.getEnergia()*0.9, // 90% da energia do personagem
                 "\n---------CAPITULO 1.2.1--------\n",
          "Você confronta o suspeito diretamente e tenta fazê-lo confessar." +
          "\nEle se chama João e é o mordomo de Elizabeth." +
@@ -52,8 +85,8 @@ public class App {
                 scan);
 
         Capitulo capitulo010202 = new Capitulo(
-        Edward,
-                50,
+        personagemPrincipal,
+                personagemPrincipal.getEnergia()*0.5, // 50% da energia do personagem
                 "\n---------CAPITULO 1.2.2--------\n",
         "Você investiga mais e reune provas contra João..." +
         "\nÉ um trabalho difícil, mas no final você consegue reunir evidências suficientes para prendê-lo."+
@@ -63,7 +96,7 @@ public class App {
                 scan);
 
         Capitulo capituloFinal1 = new Capitulo(
-         Edward,
+         personagemPrincipal,
           0,
      "\n---------FINAL 1--------\n",
           "Você não resolveu o caso do assassinato de Elizabeth e volta para sua vida normal." +
@@ -71,7 +104,7 @@ public class App {
           scan);
 
         Capitulo capituloFinal2 = new Capitulo(
-          Edward,
+          personagemPrincipal,
           0,
           "\n---------FINAL 2--------\n",
           "Você não conseguiu resolver o caso do assassinato de Elizabeth e João sai impune." +
@@ -80,7 +113,7 @@ public class App {
           );
     
         Capitulo capituloFinal3 = new Capitulo(
-            Edward,
+            personagemPrincipal,
           0,
      "\n---------FINAL 3--------\n",
           "Você resolveu o caso do assassinato de Elizabeth e prendeu João, o culpado." +
@@ -97,7 +130,6 @@ public class App {
           capitulo010202.setEscolha("Continuar", capituloFinal3);
 
    
-          Edward.setEnergia(100);
           capituloRaiz.executar();
 
           System.out.println("Tentar novamente?");

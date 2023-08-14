@@ -1,24 +1,25 @@
 public class Personagem {
 
     private String nome;
-    private int energia;
+    private double energia;
 
     public Personagem(String nome) {
         this.nome = nome;
     }
-    public void subtrairEnergia(int valor) {    
+    public void subtrairEnergia(double valor) {    
         this.energia -= valor;
+       
     }
-    public void setEnergia(int valor) throws EnergiaException {
-        if (valor != 100 ) {
-            throw new EnergiaException("Energia não pode ser diferente de 100!");
+    public void setEnergia(double valor) {
+        if (valor < 0) {
+            throw new EnergiaException("Não pode definir energia negativa!");
         }
         this.energia = valor;
     }
     public String getNome() {
         return this.nome;
     }
-    public int getEnergia() {
+    public double getEnergia() {
         return this.energia;
     }  
 }

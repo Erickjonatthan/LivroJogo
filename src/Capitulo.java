@@ -5,10 +5,10 @@ public class Capitulo {
     private String nome, texto;
     private ArrayList<Escolha> escolhas;
     private Personagem personagem;
-    private int alteracaoEnergia;
+    private double alteracaoEnergia;
     private Scanner scan;    
     
-    public Capitulo(Personagem personagem, int alteracaoEnergia, String nome, String texto, Scanner scan){
+    public Capitulo(Personagem personagem, double alteracaoEnergia, String nome, String texto, Scanner scan){
         this.personagem = personagem;
         this.alteracaoEnergia = alteracaoEnergia;
         this.nome = nome;
@@ -42,33 +42,32 @@ public class Capitulo {
     }
 
     private void mostrar(){
-    
-         personagem.subtrairEnergia(alteracaoEnergia);
-
-         if(alteracaoEnergia != 0){
-             System.out.println("\n-ATENÇÃO: "+personagem.getNome()+" gastou "+alteracaoEnergia+" pontos de energia ao escolher essa opção!");
+        
+        personagem.subtrairEnergia(alteracaoEnergia);
+        
+        if(alteracaoEnergia != 0){
+            //exibe a alteração de energia arredondado
+            System.out.println("Sua energia foi alterada em: " +String.format("%.0f", alteracaoEnergia));
          }
          
          System.out.println(this.nome);
          System.out.println(this.texto);
-    
          for (Escolha escolha : escolhas) {
              System.out.println("- "+ escolha.getTexto());
          }
     
-    
+         
          if(alteracaoEnergia != 0 && escolhas.size() != 0){
-             System.out.println("Sua energia é de: " +personagem.getEnergia());    
+                System.out.println("Sua energia é de: " +String.format("%.0f", personagem.getEnergia()));
          }
 
          if(alteracaoEnergia == 0){    
-             System.out.println("Sua energia é de: " +personagem.getEnergia());
+                System.out.println("Sua energia é de: " +String.format("%.0f", personagem.getEnergia()));
          }
-        
      }
  
     public void setEscolha(String texto, Capitulo capitulo){
-
+        
         this.escolhas.add(new Escolha(texto, capitulo));
 
     }
