@@ -45,7 +45,7 @@ public class App {
 
         Capitulo capituloRaiz = new Capitulo(
         personagemPrincipal,
-        0,
+        0.0,
         "\n---------CAPITULO 1--------\n",
         personagemPrincipal.getNome()+" é um investigador famoso por resolver casos difíceis." +
         "\nUm dia, você é chamado para investigar o assassinato de uma mulher rica chamada Elizabeth." +
@@ -97,7 +97,7 @@ public class App {
 
         Capitulo capituloFinal1 = new Capitulo(
          personagemPrincipal,
-          0,
+          0.0,
      "\n---------FINAL 1--------\n",
           "Você não resolveu o caso do assassinato de Elizabeth e volta para sua vida normal." +
           "\nHá outros casos para resolver e outras aventuras para viver.\n",
@@ -105,7 +105,7 @@ public class App {
 
         Capitulo capituloFinal2 = new Capitulo(
           personagemPrincipal,
-          0,
+          0.0,
           "\n---------FINAL 2--------\n",
           "Você não conseguiu resolver o caso do assassinato de Elizabeth e João sai impune." +
           "\nVoltando para sua vida normal, mas fica com a sensação de que a justiça não foi feita.\n",
@@ -114,7 +114,7 @@ public class App {
     
         Capitulo capituloFinal3 = new Capitulo(
             personagemPrincipal,
-          0,
+          0.0,
      "\n---------FINAL 3--------\n",
           "Você resolveu o caso do assassinato de Elizabeth e prendeu João, o culpado." +
           "\nA justiça foi feita e você é aclamado como um herói por todos.\n",

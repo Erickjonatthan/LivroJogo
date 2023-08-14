@@ -11,7 +11,7 @@ public class Personagem {
        
     }
     public void setEnergia(double valor) {
-        if (valor < 0) {
+        if (valor < 0.0) {
             throw new EnergiaException("Não pode definir energia negativa!");
         }
         this.energia = valor;
