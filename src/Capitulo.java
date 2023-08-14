@@ -8,13 +8,14 @@ public class Capitulo {
     private double alteracaoEnergia;
     private Scanner scan;    
     
-    public Capitulo(Personagem personagem, double alteracaoEnergia, String nome, String texto, Scanner scan){
+    public Capitulo(Personagem personagem, double alteracaoEnergia, String nome, String texto){
         this.personagem = personagem;
         this.alteracaoEnergia = alteracaoEnergia;
         this.nome = nome;
         this.texto = texto;
-        this.scan = scan;
+        this.scan = new Scanner(System.in, "UTF-8");
         this.escolhas = new ArrayList<Escolha>();
+        
     }
     private int escolher(){
     
@@ -46,7 +47,6 @@ public class Capitulo {
         personagem.subtrairEnergia(alteracaoEnergia);
         
         if(alteracaoEnergia != 0.0){
-            //exibe a alteração de energia arredondado
             System.out.println("Sua energia foi alterada em: " +String.format("%.0f", alteracaoEnergia));
          }
          
@@ -82,6 +82,14 @@ public class Capitulo {
             }
 
     }
+    public String getNome(){
+        return this.nome;
+    }
+    public String getTexto(){
+        return this.texto;
+    }
+    
+
 
 }
 

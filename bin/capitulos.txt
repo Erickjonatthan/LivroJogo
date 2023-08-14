@@ -1,0 +1,54 @@
+CAPITULO 1;
+Seu nome é personagem.getNome(), um investigador famoso por resolver casos difíceis.
+Um dia, você é chamado para investigar o assassinato de uma mulher rica chamada Elizabeth.
+Ela foi encontrada morta em sua mansão e a polícia não tem pistas sobre o assassino.
+Você decide investigar o caso e vai até a mansão de Elizabeth.
+Lá, você encontra um enigma escrito em um pedaço de papel.
+O enigma diz - O assassino está mais perto do que você imagina!
+.Tentar decifrar o enigma,CAPITULO 1.2/Ir embora,CAPITULO 1.1 
+*0.0
+-
+CAPITULO 1.1;
+personagem.getNome() decide que é muito difícil resolver o enigma e vai embora.
+A polícia fica desapontada, mas entende sua decisão.
+Você não descobriu a verdade sobre o assassinato de Elizabeth.
+.Continuar, FINAL 1
+*personagem.getEnergia()
+-
+CAPITULO 1.2;
+personagem.getNome() descobre que o enigma aponta para um suspeito inesperado. É João, o mordomo de Elizabeth.
+.Confrontar o suspeito diretamente,CAPITULO 1.2.1/Investigar mais para reunir provas,CAPITULO 1.2.2
+*personagem.getEnergia()*0.1
+-
+CAPITULO 1.2.1;
+personagem.getNome() confronta o suspeito diretamente e tenta fazê-lo confessar.
+Ele se chama João e é o mordomo de Elizabeth.
+Ele nega tudo e se recusa a cooperar.
+Você não tem provas suficientes para prendê-lo e ele sai impune.
+.Continuar, FINAL 2
+*personagem.getEnergia()*0.1
+-
+CAPITULO 1.2.2;
+personagem.getNome() investiga mais e reune provas contra João...
+É um trabalho difícil, mas no final você consegue reunir evidências suficientes para prendê-lo.
+Descobrindo que ele estava apaixonado por Elizabeth, mas ela não correspondia aos seus sentimentos.
+Além disso, Elizabeth estava planejando demiti-lo e ele ficou com raiva.
+João é levado a julgamento e condenado pelo assassinato de Elizabeth.
+.Continuar, FINAL 3
+*personagem.getEnergia()*0.5
+-
+FINAL 1;
+personagem.getNome() não resolveu o caso do assassinato de Elizabeth e volta para sua vida normal.
+Há outros casos para resolver e outras aventuras para viver.
+*0.0
+-
+FINAL 2;
+personagem.getNome() não conseguiu resolver o caso do assassinato de Elizabeth e João sai impune.
+Voltando para sua vida normal, mas fica com a sensação de que a justiça não foi feita.
+*0.0
+-
+FINAL 3;
+personagem.getNome() resolveu o caso do assassinato de Elizabeth e prendeu João, o culpado.
+A justiça foi feita e você é aclamado como um herói por todos.
+*0.0
+-
