@@ -8,13 +8,14 @@ public class Capitulo {
     private double alteracaoEnergia;
     private Scanner scan;    
     
-    public Capitulo(Personagem personagem, double alteracaoEnergia, String nome, String texto){
-        this.personagem = personagem;
-        this.alteracaoEnergia = alteracaoEnergia;
+    public Capitulo(String nome, String texto,Personagem personagem, double alteracaoEnergia, Scanner scan){
+        
         this.nome = nome;
         this.texto = texto;
-        this.scan = new Scanner(System.in, "UTF-8");
+        this.personagem = personagem;
+        this.scan = scan;
         this.escolhas = new ArrayList<Escolha>();
+        this.alteracaoEnergia = alteracaoEnergia;
         
     }
     private int escolher(){
@@ -65,7 +66,7 @@ public class Capitulo {
                 System.out.println("Sua energia é de: " +String.format("%.0f", personagem.getEnergia()));
          }
      }
- 
+     
     public void setEscolha(String texto, Capitulo capitulo){
         
         this.escolhas.add(new Escolha(texto, capitulo));
