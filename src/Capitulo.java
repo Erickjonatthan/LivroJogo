@@ -45,7 +45,7 @@ public class Capitulo {
         
         personagem.subtrairEnergia(alteracaoEnergia);
         
-        if(alteracaoEnergia != 0){
+        if(alteracaoEnergia != 0.0){
             //exibe a alteração de energia arredondado
             System.out.println("Sua energia foi alterada em: " +String.format("%.0f", alteracaoEnergia));
          }
@@ -57,11 +57,11 @@ public class Capitulo {
          }
     
          
-         if(alteracaoEnergia != 0 && escolhas.size() != 0){
+         if(alteracaoEnergia != 0.0 && escolhas.size() != 0.0){
                 System.out.println("Sua energia é de: " +String.format("%.0f", personagem.getEnergia()));
          }
 
-         if(alteracaoEnergia == 0){    
+         if(alteracaoEnergia == 0.0){    
                 System.out.println("Sua energia é de: " +String.format("%.0f", personagem.getEnergia()));
          }
      }
