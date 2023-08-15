@@ -14,11 +14,7 @@ public class App {
         Boolean carregaProgresso = leitorCarregador.lerProgresso(dados, scan);
         
         if (carregaProgresso) {
-            Personagem temp = new Personagem("", 0);
-            temp.carregarArquivo();
-            Personagem personagem = personagens.get(temp.getNome());
-            personagem.setEnergia(temp.getEnergia());
-            personagem.setProgresso(temp.getProgresso());
+            Personagem temp = leitorCarregador.getPersonagemTemp(personagens);
             capitulosMap.get(temp.getProgresso()).executar();
         } else {
             if(dados.exists()){
@@ -37,5 +33,4 @@ public class App {
         }
         scan.close();
     }
-
 }

@@ -74,7 +74,7 @@ public class LeitorCarregador {
 
         return capitulosMap;
 
-    };
+    }
 
     public Boolean lerProgresso(File arquivoProgresso, Scanner scan){
         if(arquivoProgresso.exists()){
@@ -90,6 +90,14 @@ public class LeitorCarregador {
         else{
             return false;
         }
+    }
+    public Personagem getPersonagemTemp(HashMap<String, Personagem> personagens) {
+        Personagem temp = new Personagem("", 0);
+        temp.carregarArquivo();
+        Personagem personagem = personagens.get(temp.getNome());
+        personagem.setEnergia(temp.getEnergia());
+        personagem.setProgresso(temp.getProgresso());
+        return temp;
     }
 
 }
