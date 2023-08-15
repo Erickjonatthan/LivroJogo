@@ -25,7 +25,7 @@ public class Capitulo {
         boolean continua = true;
         if (this.escolhas.size() > 0) {
 
-            System.out.print("-Qual sua escolha? ");
+            System.out.print("->Qual sua escolha? ");
             String textoDigitado = this.scan.nextLine();
 
             while (continua) {
@@ -54,17 +54,16 @@ public class Capitulo {
 
         System.out.println(this.nome);
         System.out.println(this.texto.replace("PLAYER", personagem.getNome()));
+        
         for (Escolha escolha : escolhas) {
             System.out.println("- " + escolha.getTexto());
         }
 
-        if (alteracaoEnergia != 0.0 && escolhas.size() != 0.0) {
-            System.out.println("Sua energia é de: " + String.format("%.0f", personagem.getEnergia()));
+        if (this.escolhas.size() > 0 && !this.escolhas.get(0).getTexto().equalsIgnoreCase("Continuar")) {
+            System.out.println("Energia: " + String.format("%.0f", personagem.getEnergia()));
         }
 
-        if (alteracaoEnergia == 0.0) {
-            System.out.println("Sua energia é de: " + String.format("%.0f", personagem.getEnergia()));
-        }
+        
     }
 
     public void setEscolha(String texto, Capitulo capitulo) {
