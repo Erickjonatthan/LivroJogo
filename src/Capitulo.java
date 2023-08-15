@@ -1,14 +1,15 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+
 public class Capitulo {
 
     private String nome, texto;
     private ArrayList<Escolha> escolhas;
     private Personagem personagem;
     private double alteracaoEnergia;
-    private Scanner scan;    
-    
-    public Capitulo(String nome, String texto,Personagem personagem, double alteracaoEnergia, Scanner scan){
+    private Scanner scan;
+
+    public Capitulo(String nome, String texto, Personagem personagem, double alteracaoEnergia, Scanner scan) {
 
         this.nome = nome;
         this.texto = texto;
@@ -16,17 +17,17 @@ public class Capitulo {
         this.scan = scan;
         this.escolhas = new ArrayList<Escolha>();
         this.alteracaoEnergia = alteracaoEnergia;
-        
+
     }
-    private int escolher(){
-    
+
+    private int escolher() {
+
         boolean continua = true;
         if (this.escolhas.size() > 0) {
-            
+
             System.out.print("-Qual sua escolha? ");
             String textoDigitado = this.scan.nextLine();
-        
-    
+
             while (continua) {
                 for (int i = 0; i < this.escolhas.size(); i++) {
                     if (textoDigitado.equalsIgnoreCase(this.escolhas.get(i).getTexto())) {
@@ -43,54 +44,53 @@ public class Capitulo {
         return -1;
     }
 
-    private void mostrar(){
-        
-        
-        if(alteracaoEnergia != 0.0){
-            System.out.println("Sua energia foi alterada em: " +String.format("%.0f", alteracaoEnergia*personagem.getEnergia()));
+    private void mostrar() {
+
+        if (alteracaoEnergia != 0.0) {
+            System.out.println("Sua energia foi alterada em: "
+                    + String.format("%.0f", alteracaoEnergia * personagem.getEnergia()));
         }
         personagem.subtrairEnergia(alteracaoEnergia);
-        
-         System.out.println(this.nome);
-         System.out.println(this.texto.replace("PLAYER", personagem.getNome()));
-         for (Escolha escolha : escolhas) {
-             System.out.println("- "+ escolha.getTexto());
-         }
-    
-         
-         if(alteracaoEnergia != 0.0 && escolhas.size() != 0.0){
-                System.out.println("Sua energia é de: " +String.format("%.0f", personagem.getEnergia()));
-         }
 
-         if(alteracaoEnergia == 0.0){    
-                System.out.println("Sua energia é de: " +String.format("%.0f", personagem.getEnergia()));
-         }
-     }
-     
-    public void setEscolha(String texto, Capitulo capitulo){
-        
+        System.out.println(this.nome);
+        System.out.println(this.texto.replace("PLAYER", personagem.getNome()));
+        for (Escolha escolha : escolhas) {
+            System.out.println("- " + escolha.getTexto());
+        }
+
+        if (alteracaoEnergia != 0.0 && escolhas.size() != 0.0) {
+            System.out.println("Sua energia é de: " + String.format("%.0f", personagem.getEnergia()));
+        }
+
+        if (alteracaoEnergia == 0.0) {
+            System.out.println("Sua energia é de: " + String.format("%.0f", personagem.getEnergia()));
+        }
+    }
+
+    public void setEscolha(String texto, Capitulo capitulo) {
+
         this.escolhas.add(new Escolha(texto, capitulo));
 
     }
-   
-    public void executar(){
 
-            mostrar();
-            int id = escolher();
-            if(id >= 0 ){
-                
-                this.escolhas.get(id).getProximo().executar();
-            }
+    public void executar() {
+
+        mostrar();
+        int id = escolher();
+        if (id >= 0) {
+            this.personagem.setProgresso(this.escolhas.get(id).getNextCapituloNome());
+            this.personagem.salvaArquivo();
+            this.escolhas.get(id).getProximo().executar();
+        }
 
     }
-    public String getNome(){
+
+    public String getNome() {
         return this.nome;
     }
-    public String getTexto(){
+
+    public String getTexto() {
         return this.texto;
     }
-    
-
 
 }
-
