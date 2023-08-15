@@ -16,11 +16,17 @@ public class App {
         if (carregaProgresso) {
             Personagem temp = new Personagem("", 0);
             temp.carregarArquivo();
-            personagens.put(temp.getNome(), temp);
+            personagens.get(temp.getNome()).setNome(temp.getNome());
+            personagens.get(temp.getNome()).setEnergia(temp.getEnergia());
+            personagens.get(temp.getNome()).setProgresso(temp.getProgresso());
             capitulosMap.get(temp.getProgresso()).executar();
         } else {
+            if(dados.exists()){
+                dados.delete();
+            }
             capitulosMap.get("CAPITULO 1").executar();
         }
+        
     
         System.out.println("Tentar novamente?");
         String resposta = scan.nextLine();
