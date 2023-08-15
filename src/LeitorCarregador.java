@@ -43,6 +43,10 @@ public class LeitorCarregador {
         String textoCapitulo = "";
         String nomePersonagem = "";
         Double variacaoEnergia = 0.0;
+        String capituloOrigem = "";
+        String capituloDestino = "";
+        String textoEscolha = "";
+
 
         try{
             Scanner scanCapitulos = new Scanner(arquivoCapitulos, "UTF-8");
@@ -53,6 +57,12 @@ public class LeitorCarregador {
                     nomePersonagem = scanCapitulos.nextLine();
                     variacaoEnergia = Double.parseDouble(scanCapitulos.nextLine());
                     capitulosMap.put(nomeCapitulo, new Capitulo(nomeCapitulo, textoCapitulo,personagensMap.get(nomePersonagem), variacaoEnergia, scan ));
+                }
+                else if(nomeCapitulo.equalsIgnoreCase("ESCOLHA")){
+                    capituloOrigem = scanCapitulos.nextLine();
+                    textoEscolha = scanCapitulos.nextLine();
+                    capituloDestino = scanCapitulos.nextLine();
+                    capitulosMap.get(capituloOrigem).setEscolha(textoEscolha, capitulosMap.get(capituloDestino));
                 }
              
             }

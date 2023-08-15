@@ -9,7 +9,7 @@ public class Capitulo {
     private Scanner scan;    
     
     public Capitulo(String nome, String texto,Personagem personagem, double alteracaoEnergia, Scanner scan){
-        
+
         this.nome = nome;
         this.texto = texto;
         this.personagem = personagem;
@@ -45,14 +45,14 @@ public class Capitulo {
 
     private void mostrar(){
         
-        personagem.subtrairEnergia(alteracaoEnergia);
         
         if(alteracaoEnergia != 0.0){
-            System.out.println("Sua energia foi alterada em: " +String.format("%.0f", alteracaoEnergia));
-         }
-         
+            System.out.println("Sua energia foi alterada em: " +String.format("%.0f", alteracaoEnergia*personagem.getEnergia()));
+        }
+        personagem.subtrairEnergia(alteracaoEnergia);
+        
          System.out.println(this.nome);
-         System.out.println(this.texto);
+         System.out.println(this.texto.replace("PLAYER", personagem.getNome()));
          for (Escolha escolha : escolhas) {
              System.out.println("- "+ escolha.getTexto());
          }

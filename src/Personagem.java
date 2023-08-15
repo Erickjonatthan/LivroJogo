@@ -13,6 +13,9 @@ public class Personagem {
     }
     public void subtrairEnergia(double valor) {    
         this.energia -= valor*this.energia; 
+        if (this.energia < 0.0) {
+            this.energia = 0.0;
+        }
     }
 
     public String getNome() {
