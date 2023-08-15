@@ -16,9 +16,9 @@ public class App {
         if (carregaProgresso) {
             Personagem temp = new Personagem("", 0);
             temp.carregarArquivo();
-            personagens.get(temp.getNome()).setNome(temp.getNome());
-            personagens.get(temp.getNome()).setEnergia(temp.getEnergia());
-            personagens.get(temp.getNome()).setProgresso(temp.getProgresso());
+            Personagem personagem = personagens.get(temp.getNome());
+            personagem.setEnergia(temp.getEnergia());
+            personagem.setProgresso(temp.getProgresso());
             capitulosMap.get(temp.getProgresso()).executar();
         } else {
             if(dados.exists()){
@@ -30,6 +30,7 @@ public class App {
     
         System.out.println("Tentar novamente?");
         String resposta = scan.nextLine();
+        
         if (resposta.equalsIgnoreCase("Sim")){
             dados.delete();
             main(args);
