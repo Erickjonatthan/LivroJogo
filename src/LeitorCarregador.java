@@ -38,7 +38,6 @@ public class LeitorCarregador {
         HashMap<String, Capitulo> capitulosMap = new HashMap<>();
 
         File arquivoCapitulos = new File(caminho);
-
         String nomeCapitulo = "";
         String textoCapitulo = "";
         String nomePersonagem = "";
@@ -53,10 +52,26 @@ public class LeitorCarregador {
             while(scanCapitulos.hasNextLine()){
                 nomeCapitulo = scanCapitulos.nextLine();
                 if(nomeCapitulo.startsWith("CAPITULO")){
+                    String imagem = "";
+                    if (nomeCapitulo.indexOf("_IMAGEM") > 0){
+                        while(true){
+                            String linha = scanCapitulos.nextLine();
+                            if (linha.equalsIgnoreCase("IMAGEM_FIM")) break;
+                            imagem = imagem + linha + "\n";
+                        }
+                    }
                     textoCapitulo = scanCapitulos.nextLine();
                     nomePersonagem = scanCapitulos.nextLine();
                     variacaoEnergia = Double.parseDouble(scanCapitulos.nextLine());
-                    capitulosMap.put(nomeCapitulo, new Capitulo(nomeCapitulo, textoCapitulo,personagensMap.get(nomePersonagem), variacaoEnergia, scan ));
+                    //textoCapitulo = imagem +"\n"+ textoCapitulo;
+                    if (imagem.length() > 0){
+                        CapituloImagem temp = new CapituloImagem(nomeCapitulo, textoCapitulo, personagensMap.get(nomePersonagem), variacaoEnergia, scan, imagem);
+                        capitulosMap.put(nomeCapitulo, temp);
+                    } else {
+                        Capitulo temp = new Capitulo(nomeCapitulo, textoCapitulo,personagensMap.get(nomePersonagem), variacaoEnergia, scan );
+                        capitulosMap.put(nomeCapitulo, temp);
+                    }
+                    //capitulosMap.put(nomeCapitulo, new Capitulo(nomeCapitulo, textoCapitulo,personagensMap.get(nomePersonagem), variacaoEnergia, scan ));
                 }
                 else if(nomeCapitulo.equalsIgnoreCase("ESCOLHA")){
                     capituloOrigem = scanCapitulos.nextLine();

@@ -3,11 +3,11 @@ import java.util.Scanner;
 
 public class Capitulo {
 
-    private String nome, texto;
-    private ArrayList<Escolha> escolhas;
-    private Personagem personagem;
-    private double alteracaoEnergia;
-    private Scanner scan;
+    protected String nome, texto;
+    protected ArrayList<Escolha> escolhas;
+    protected Personagem personagem;
+    protected double alteracaoEnergia;
+    protected Scanner scan;
 
     public Capitulo(String nome, String texto, Personagem personagem, double alteracaoEnergia, Scanner scan) {
 
@@ -44,7 +44,12 @@ public class Capitulo {
         return -1;
     }
 
-    private void mostrar() {
+    protected void mostrar() {
+        
+        MostrarOriginal();
+    }
+
+    private void MostrarOriginal() {
         if (alteracaoEnergia != 0.0) {
             System.out.println("Sua energia foi alterada em: "
                     + String.format("%.0f", alteracaoEnergia * personagem.getEnergia()));
@@ -61,8 +66,6 @@ public class Capitulo {
         if (escolhas.size() > 0) {
             System.out.println("Energia: " + String.format("%.0f", personagem.getEnergia()));
         }
-           
-        
     }
 
     public void setEscolha(String texto, Capitulo capitulo) {

@@ -20,7 +20,7 @@ public class App {
             if(dados.exists()){
                 dados.delete();
             }
-            capitulosMap.get("CAPITULO 1").executar();
+            capitulosMap.get("CAPITULO_IMAGEM 1").executar();
         }
         
     

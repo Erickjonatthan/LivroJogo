@@ -1,8 +1,23 @@
-CAPITULO 1
+CAPITULO_IMAGEM 1
+     _..--""````""--.._
+    .'       |\/|       '.
+   /    /`._ |  | _.'\    \
+  ;    /              \    |
+  |   /                \   |
+  ;  / .-.          .-. \  ;
+   \ |/   \.-.  .-./   \| /
+    '._       \/       _.'
+       ''--..____..--''
+IMAGEM_FIM
 PLAYER é um investigador famoso por resolver casos difíceis.Um dia, ele é chamado para investigar o assassinato de uma mulher rica chamada Elizabeth.Ela foi encontrada morta em sua mansão e a polícia não tem pistas sobre o assassino.Ele decide investigar o caso e vai até a mansão de Elizabeth.Lá, ele encontra um enigma escrito em um pedaço de papel.O enigma diz - O assassino está mais perto do que PLAYER imagina!
 Erick
 0.0
-CAPITULO 1.1
+CAPITULO_IMAGEM 1.1
+  ______
+ /|_||_\`.__
+(   _    _ _\
+=`-(_)--(_)-'
+IMAGEM_FIM
 PLAYER decide que é muito difícil resolver o enigma e vai embora.A polícia fica desapontada, mas entende sua decisão.Ele não descobriu a verdade sobre o assassinato de Elizabeth.
 Erick
 1.0
@@ -10,7 +25,12 @@ CAPITULO 1.2
 PLAYER descobre que o enigma aponta para um suspeito inesperado. É João, o mordomo de Elizabeth.
 Erick
 0.1
-CAPITULO 1.2.1
+CAPITULO_IMAGEM 1.2.1
+      __,_____
+     / __.==--"
+    /#(-'
+    `-'
+IMAGEM_FIM
 PLAYER confronta o suspeito diretamente e tenta fazê-lo confessar.Ele se chama João e é o mordomo de Elizabeth.Ele nega tudo e se recusa a cooperar.PLAYER não tem provas suficientes para prendê-lo e ele sai impune.
 Erick
 0.9
@@ -26,30 +46,40 @@ CAPITULO FINAL 2
 PLAYER não conseguiu resolver o caso do assassinato de Elizabeth e João sai impune.Voltando para sua vida normal, mas fica com a sensação de que a justiça não foi feita.
 Erick
 0.0
-CAPITULO FINAL 3
+CAPITULO_IMAGEM FINAL 3
+  ________________
+ /.,------------,.\
+///  .=^^^^^^^\__|\\
+\\\   `------.   .//
+ `\\`--...._  `;//'
+   `\\.-,___;.//'
+     `\\-..-//'
+       `\\//'
+         ""
+IMAGEM_FIM
 PLAYER resolveu o caso do assassinato de Elizabeth e prendeu João, o culpado.A justiça foi feita e PLAYER é aclamado como um herói por todos.
 Erick
 0.0
 
 ESCOLHA
-CAPITULO 1
+CAPITULO_IMAGEM 1
 ir embora
-CAPITULO 1.1
+CAPITULO_IMAGEM 1.1
 
 ESCOLHA
-CAPITULO 1
+CAPITULO_IMAGEM 1
 tentar decifrar o enigma
 CAPITULO 1.2
 
 ESCOLHA
-CAPITULO 1.1
+CAPITULO_IMAGEM 1.1
 continuar
 CAPITULO FINAL 1
 
 ESCOLHA
 CAPITULO 1.2
 confrontar o suspeito diretamente
-CAPITULO 1.2.1
+CAPITULO_IMAGEM 1.2.1
 
 ESCOLHA
 CAPITULO 1.2
@@ -57,11 +87,11 @@ investigar para reunir mais provas
 CAPITULO 1.2.2
 
 ESCOLHA
-CAPITULO 1.2.1
+CAPITULO_IMAGEM 1.2.1
 continuar
 CAPITULO FINAL 2
 
 ESCOLHA
 CAPITULO 1.2.2
 continuar
-CAPITULO FINAL 3
+CAPITULO_IMAGEM FINAL 3
