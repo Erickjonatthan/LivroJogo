@@ -46,10 +46,6 @@ public class Capitulo {
 
     protected void mostrar() {
         
-        MostrarOriginal();
-    }
-
-    private void MostrarOriginal() {
         if (alteracaoEnergia != 0.0) {
             System.out.println("Sua energia foi alterada em: "
                     + String.format("%.0f", alteracaoEnergia * personagem.getEnergia()));
@@ -67,6 +63,7 @@ public class Capitulo {
             System.out.println("Energia: " + String.format("%.0f", personagem.getEnergia()));
         }
     }
+
 
     public void setEscolha(String texto, Capitulo capitulo) {
 

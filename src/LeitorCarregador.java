@@ -54,16 +54,15 @@ public class LeitorCarregador {
                 if(nomeCapitulo.startsWith("CAPITULO")){
                     String imagem = "";
                     if (nomeCapitulo.indexOf("_IMAGEM") > 0){
-                        while(true){
-                            String linha = scanCapitulos.nextLine();
-                            if (linha.equalsIgnoreCase("IMAGEM_FIM")) break;
+                        String linha = scanCapitulos.nextLine();
+                        while (!linha.equalsIgnoreCase("IMAGEM_FIM")) {
                             imagem = imagem + linha + "\n";
+                            linha = scanCapitulos.nextLine();
                         }
                     }
                     textoCapitulo = scanCapitulos.nextLine();
                     nomePersonagem = scanCapitulos.nextLine();
                     variacaoEnergia = Double.parseDouble(scanCapitulos.nextLine());
-                    //textoCapitulo = imagem +"\n"+ textoCapitulo;
                     if (imagem.length() > 0){
                         CapituloImagem temp = new CapituloImagem(nomeCapitulo, textoCapitulo, personagensMap.get(nomePersonagem), variacaoEnergia, scan, imagem);
                         capitulosMap.put(nomeCapitulo, temp);
@@ -71,7 +70,7 @@ public class LeitorCarregador {
                         Capitulo temp = new Capitulo(nomeCapitulo, textoCapitulo,personagensMap.get(nomePersonagem), variacaoEnergia, scan );
                         capitulosMap.put(nomeCapitulo, temp);
                     }
-                    //capitulosMap.put(nomeCapitulo, new Capitulo(nomeCapitulo, textoCapitulo,personagensMap.get(nomePersonagem), variacaoEnergia, scan ));
+                
                 }
                 else if(nomeCapitulo.equalsIgnoreCase("ESCOLHA")){
                     capituloOrigem = scanCapitulos.nextLine();
