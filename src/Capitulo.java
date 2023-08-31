@@ -20,75 +20,61 @@ public class Capitulo {
 
     }
 
-    private int escolher() {
+    // private int escolher() {
 
-        boolean continua = true;
-        if (this.escolhas.size() > 0) {
-
-            System.out.print("->Qual sua escolha? ");
-            String textoDigitado = this.scan.nextLine();
-
-            while (continua) {
-                for (int i = 0; i < this.escolhas.size(); i++) {
-                    if (textoDigitado.equalsIgnoreCase(this.escolhas.get(i).getTexto())) {
-                        continua = false;
-                        return i;
-                    }
-                }
-                if (continua) {
-                    System.out.println("\nNão entendi... Tente novamente:");
-                    textoDigitado = this.scan.nextLine();
-                }
-            }
-        }
-        return -1;
-    }
-
-    protected void mostrar() {
+    //     if (this.escolhas.size() > 0) {
         
-        if (alteracaoEnergia != 0.0) {
-            System.out.println("Sua energia foi alterada em: "
-                    + String.format("%.0f", alteracaoEnergia * personagem.getEnergia()));
-        }
-        personagem.subtrairEnergia(alteracaoEnergia);
-
-        System.out.println(this.nome);
-        System.out.println(this.texto.replace("PLAYER", personagem.getNome()));
+    //             for (int i = 0; i < this.escolhas.size(); i++) {
+    //                 if (.equalsIgnoreCase(this.escolhas.get(i).getTexto())) {
+    //                     return i;
+    //                 }
+    //             }
+              
+    //         }
         
-        for (Escolha escolha : escolhas) {
-            System.out.println("- " + escolha.getTexto());
-        }
+    //     return -1;
+    // }
 
-        if (escolhas.size() > 0) {
-            System.out.println("Energia: " + String.format("%.0f", personagem.getEnergia()));
-        }
-    }
 
 
     public void setEscolha(String texto, Capitulo capitulo) {
 
         this.escolhas.add(new Escolha(texto, capitulo));
 
+
     }
+    public void salvaProgresso(String proximaEscolha) {
 
-    public void executar() {
-
-        mostrar();
-        int id = escolher();
-        if (id >= 0) {
-            this.personagem.setProgresso(this.escolhas.get(id).getNextCapituloNome());
+            this.personagem.setProgresso(proximaEscolha);
             this.personagem.salvaArquivo();
-            this.escolhas.get(id).getProximo().executar();
-        }
 
+        
     }
+
 
     public String getNome() {
         return this.nome;
     }
 
     public String getTexto() {
-        return this.texto;
+        return this.texto.replace("PLAYER", personagem.getNome());
+    }
+
+    public String getMsg(){
+        personagem.subtrairEnergia(alteracaoEnergia);
+        String msg = "";
+        if (alteracaoEnergia != 0.0) {
+            msg = "Sua energia foi alterada em: "
+                    + String.format("%.0f", alteracaoEnergia * personagem.getEnergia());
+        }
+        if (escolhas.size() > 0) {
+            msg = "Energia: " + String.format("%.0f", personagem.getEnergia());
+        }
+        return msg;
+    }
+
+    public ArrayList<Escolha> getEscolhas() {
+        return this.escolhas;
     }
 
 }

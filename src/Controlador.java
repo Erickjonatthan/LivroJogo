@@ -16,7 +16,7 @@ public class Controlador extends Application {
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
 
-        primaryStage.setTitle("Jogo");
+        primaryStage.setTitle("Livro Jogo - História do Detetive");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

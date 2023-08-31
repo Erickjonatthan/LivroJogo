@@ -15,15 +15,16 @@
             "name": "App",
             "request": "launch",
             "mainClass": "App",
-            "projectName": "LivroJogo_360cd0a6",
-            "vmArgs": "--module-path \"C:/Users/anaac/Documents/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
+            "projectName": "LivroJogo_360cd0a6"
+           
         },
         {
             "type": "java",
             "name": "Controlador",
             "request": "launch",
             "mainClass": "Controlador",
-            "projectName": "LivroJogo_360cd0a6"
+            "projectName": "LivroJogo_360cd0a6",
+            "vmArgs": "--module-path \"C:/Users/anaac/Documents/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }

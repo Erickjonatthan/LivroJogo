@@ -90,21 +90,6 @@ public class LeitorCarregador {
 
     }
 
-    public Boolean lerProgresso(File arquivoProgresso, Scanner scan){
-        if(arquivoProgresso.exists()){
-            System.out.println("Você deseja carregar o progresso salvo? ");
-            String resposta = scan.nextLine();
-            if(resposta.equalsIgnoreCase("sim")){
-                return true;
-            }
-            else{
-                return false;
-            }
-        }
-        else{
-            return false;
-        }
-    }
     public Personagem getPersonagemTemp(HashMap<String, Personagem> personagens) {
         Personagem temp = new Personagem("", 0);
         temp.carregarArquivo();

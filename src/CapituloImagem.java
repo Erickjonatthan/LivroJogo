@@ -11,10 +11,20 @@ public class CapituloImagem extends Capitulo {
 
     }
 
-    @Override
-    protected void mostrar(){
-        System.out.println("\n"+ this.imagem);
-        super.mostrar();
+    // @Override
+    // protected void mostrar(){
+    //     System.out.println("\n"+ this.imagem);
+    //     super.mostrar();
+    // }
+
+    public String getImagem() {
+        return this.imagem;
     }
-    
+  
+    public String getTexto(){
+        return(super.getTexto());
+    }
+    public String getMsg(){
+        return(super.getMsg());
+    }
 }
