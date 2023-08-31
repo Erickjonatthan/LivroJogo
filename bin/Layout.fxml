@@ -43,13 +43,19 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <Label fx:id="textoCapitulo" alignment="TOP_CENTER" layoutX="14.0" layoutY="15.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="387.0" prefWidth="611.0" textAlignment="JUSTIFY" wrapText="true">
+            <Label fx:id="textoCapitulo" alignment="TOP_CENTER" layoutX="53.0" layoutY="177.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="270.0" prefWidth="534.0" textAlignment="JUSTIFY" wrapText="true">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Consolas" size="18.0" />
                </font>
             </Label>
-            <ButtonBar fx:id="campoEscolhas" layoutX="68.0" layoutY="404.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="60.0" prefWidth="527.0" />
-            <Button fx:id="botaoCarregar" layoutX="202.0" layoutY="209.0" mnemonicParsing="false" onAction="#carregarJogo" prefHeight="60.0" prefWidth="234.0" text="Carregar" />
+            <ButtonBar fx:id="campoEscolhas" focusTraversable="false" layoutX="66.0" layoutY="452.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="60.0" prefWidth="508.0" />
+            <Button fx:id="botaoIniciar" focusTraversable="false" layoutX="202.0" layoutY="176.0" mnemonicParsing="false" onAction="#iniciarNovoJogo" prefHeight="60.0" prefWidth="234.0" text="Começar novo jogo" />
+            <AnchorPane fx:id="buttonContainer" layoutX="203.0" layoutY="275.0" prefHeight="67.0" prefWidth="234.0" />
+            <Label fx:id="campoImagem" alignment="CENTER" contentDisplay="CENTER" layoutX="157.0" prefHeight="182.0" prefWidth="318.0" textFill="#d44545">
+               <font>
+                  <Font name="Consolas" size="16.0" />
+               </font>
+            </Label>
       </children>
     </AnchorPane>
   </children>
