@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Controlador",
+            "request": "launch",
+            "mainClass": "Controlador",
+            "projectName": "LivroJogo_90afd4aa"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
@@ -16,7 +23,6 @@
             "request": "launch",
             "mainClass": "App",
             "projectName": "LivroJogo_360cd0a6"
-           
         },
         {
             "type": "java",
