@@ -1,3 +1,4 @@
+package br.com.ufrpe.projetoP2.Models;
 public class Escolha {
 
     private String texto;

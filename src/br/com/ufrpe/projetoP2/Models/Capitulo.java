@@ -1,3 +1,4 @@
+package br.com.ufrpe.projetoP2.Models;
 import java.util.ArrayList;
 import java.util.Scanner;
 

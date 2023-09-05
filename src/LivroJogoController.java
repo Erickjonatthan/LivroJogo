@@ -1,6 +1,14 @@
+
+
 import java.io.File;
 import java.util.HashMap;
 import java.util.Scanner;
+
+import br.com.ufrpe.projetoP2.Models.Capitulo;
+import br.com.ufrpe.projetoP2.Models.CapituloImagem;
+import br.com.ufrpe.projetoP2.Models.Escolha;
+import br.com.ufrpe.projetoP2.Models.Personagem;
+import br.com.ufrpe.projetoP2.Reader.LeitorCarregador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

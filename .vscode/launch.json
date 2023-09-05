@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "LivroJogo_90afd4aa"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
@@ -16,8 +23,7 @@
             "request": "launch",
             "mainClass": "Controlador",
             "projectName": "LivroJogo_90afd4aa",
-            // colocar o caminho das lib do javafx aqui
-            "vmArgs": "--module-path \"C:/Users/User/Documents/Estudos/javafx-sdk-20.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path \"C:/Users/User/Documents/Estudo/javafx-sdk-20.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }

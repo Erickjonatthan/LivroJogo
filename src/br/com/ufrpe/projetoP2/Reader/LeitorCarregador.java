@@ -1,10 +1,15 @@
+package br.com.ufrpe.projetoP2.Reader;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import br.com.ufrpe.projetoP2.Models.Capitulo;
+import br.com.ufrpe.projetoP2.Models.CapituloImagem;
+import br.com.ufrpe.projetoP2.Models.Personagem;
+
 public class LeitorCarregador {
     
-    HashMap<String, Personagem> lerPersonagens(String caminhoArquivo) {
+    public HashMap<String, Personagem> lerPersonagens(String caminhoArquivo) {
         HashMap<String, Personagem> personagensMap = new HashMap<>(); 
         
         File arquivoPersonagens = new File(caminhoArquivo);
@@ -34,7 +39,7 @@ public class LeitorCarregador {
         return personagensMap;
     }
 
-    HashMap<String, Capitulo> lerCapitulos(String caminho, HashMap<String,Personagem> personagensMap, Scanner scan){
+    public HashMap<String, Capitulo> lerCapitulos(String caminho, HashMap<String,Personagem> personagensMap, Scanner scan){
         HashMap<String, Capitulo> capitulosMap = new HashMap<>();
 
         File arquivoCapitulos = new File(caminho);

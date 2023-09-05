@@ -1,8 +1,11 @@
+package br.com.ufrpe.projetoP2.Models;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+
+import br.com.ufrpe.projetoP2.Exceptions.EnergiaException;
 
 public class Personagem implements Serializable {
 
